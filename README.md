@@ -1,18 +1,63 @@
-# React-Redux-Lab
+# React + Redux Lab: Flatiron Bakery
 
 ## Objectives
 
-1. Objective 1
-2. Objective 2
+* Practice using Redux to retreive and display data from application state
+* Implement the container component pattern
+* Use Redux tools to build a feature in which a user can add an item to state. 
 
 ## Instructions
 
-Create make the tests pass Heroku lab. API Nokogiri guest speaker belongs_to RESTful binder.ply. Url Rails slack it to me. Asset pipeline Feelings Friday puts "woof" API open source.
+#### Getting Started
 
-Destroy now we can teach dogs to do anything link drop tables lab The Gucci bundle install. Associations def iterate infobesity Twitter. Undefined local variable or method mass assignment Heroku Programmer of the Day Meetup fido.bark. Internet create. Ironboard The Gucci path stack undefined local variable or method truthy-ness. Sqlite3 scooter blog posts DRY The Gucci cat. Truthy-ness bundle.
+Clone down this lab and run `npm install`. 
 
-### Part 1: Do Some Stuff
+Run the test suite via `npm test`. 
 
-## Resources
+#### Intro
 
-* [Stack Exchange](http://www.stackexchange.com) - [Some Question on Stack Exchange](http://www.stackexchange.com/questions/123)
+You were just hired by the fast-growing international baking conglomeragte, Flatiron Bakery. You're first assignment is to work on this simple React + Redux inventory application.The app should have the following features:
+
+* Display a list of exisiting inventory items. The list should show each item's quantity and description
+* Provide a simple form for a user to add a new item to the inventory
+
+#### Step 1:
+
+* First, you'll need to configure the Redux store and pass it to your component tree via the Redux `<Provider>`
+* Then, build a root reducer using the `combineReducers` function. `combineReducers` should take in an `inventoryItemsReducer`, which you will build. 
+* Your `inventoryItemsReducer` should know how to respond to the following actions:
+  * `"GET_INVENTORY_ITEMS"`
+  * `"ADD_INVENTORY_ITEMS"`
+* Build two action creator functions
+  * The `getInventoryItems` action creator should return an object that has a payload of the following items: 
+
+```js
+[
+  {quantity: '3lbs', description: "flour"}, {quantity: "2 dozen", description: "eggs"}, {quantity: '2lbs', description: "sugar"}
+]
+```
+  * The `addInventoryItem` action creator should take in an argument of a quantity and description, and use that info to create a new inventory item object.
+
+* Once you're action creators and reducer are in place, build out the `App` component and the `InventoryList` and `NewInventoryItem` components.
+* The `App` component should be connected to the store via the `connect` function. It should use `mapStateToProps` to get the inventory items out of state and `mapDispatchToProps` to gain access to your action creator functions. 
+* `App` is a container component. It should pass the inventory items down to `InventoryList` to be rendered as a list.
+* `App` should contain `NewInventoryItem`, which is a form for a new inventory item. `NewInventoryItem` should use a prop as a callback function to tell `App` to dispatch the `addInventoryItem` action when the user submits the form.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
