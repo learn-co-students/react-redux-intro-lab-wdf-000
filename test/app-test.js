@@ -16,8 +16,7 @@ function setup() {
   }
   const mockStore = configureStore([]);
   const store = mockStore({});
-  const wrapper = shallow(<App {...props} store={store}/>).shallow()
-
+  const wrapper = shallow(<App {...props} store={store}/>)
   return {
     props,
     wrapper
@@ -27,9 +26,32 @@ function setup() {
 describe('<App/>', function () {
 
   it('should render the InventoryList component as a child', function () {
-    const { store, props, wrapper } = setup()
-    expect(wrapper.find('InventoryList').length).toEqual(1)
+    const { wrapper } = setup()
+    expect(wrapper.shallow().find('InventoryList').length).toEqual(1)
   });
+
+  it('should render the NewInventoryItem component as a child', function () {
+    const { wrapper } = setup()
+    expect(wrapper.shallow().find('NewInventoryItem').length).toEqual(1)
+  });
+
+  it('should be connected to the store via the `connect` function', function() {
+    const { wrapper } = setup()
+    expect(wrapper.unrendered.type.displayName).toEqual('Connect(App)')
+  })
 
  
 });
+
+
+
+
+
+
+
+
+
+
+
+
+

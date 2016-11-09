@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import InventoryList from './InventoryList';
-
+import NewInventoryItem from './NewInventoryItem'
+import * as actions from './actions/inventoryItemsActions'
+import {bindActionCreators} from 'redux'
 class App extends Component {
+   constructor(props) {
+    super(props);
+    this.createItem = this.createItem.bind(this)
+  }
+
+  createItem(quantity, description) {
+    this.props.actions.addInventoryListItem(quantity, description)
+  }
+
   render() {
     return (
       <div className="App">
@@ -10,6 +21,7 @@ class App extends Component {
           <h2>Flatiron Bakery</h2>
         </div>
         <InventoryList inventoryItems={this.props.inventoryListItems} />
+        <NewInventoryItem triggerCreateItem={this.createItem}/>
       </div>
     );
   }
@@ -19,12 +31,12 @@ function mapStateToProps(state) {
   return {inventoryListItems: state.inventoryListItems}
 }
 
-const connector = connect(mapStateToProps)
+function mapDispatchToProps(dispatch) {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+const connector = connect(mapStateToProps, mapDispatchToProps)
 const connectedComponent = connector(App)
 
 export default connectedComponent;
 
-// Bonus: show usual export default connect...
-// Bonus: container vs. presentational components: build actual list in shopping list component
-// with actions for next code-along, shoppingList here top level, dispatch action
-// then, bonus: container vs. presentational, props as callback functions
