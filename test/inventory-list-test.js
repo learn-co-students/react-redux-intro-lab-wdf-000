@@ -9,8 +9,11 @@ const items = [{quantity: '3lbs', description: "flour"}, {quantity: "2 dozen", d
 describe('<InventoryList/>', function () {
 
   it('should display a list of inventory items with the item quantity and name', function () {
-    const wrapper = mount(<InventoryList inventoryItems={items}/>);
+    const wrapper = shallow(<InventoryList inventoryItems={items}/>);
     expect(wrapper.find('li').length).toEqual(3);
+    expect(wrapper.find('li').nodes[0].props.children).toEqual([ 'item: ', 'flour', ', quantity: ', '3lbs' ])
+    expect(wrapper.find('li').nodes[1].props.children).toEqual([ 'item: ', 'eggs', ', quantity: ', '2 dozen' ])
+    expect(wrapper.find('li').nodes[2].props.children).toEqual([ 'item: ', 'sugar', ', quantity: ', '2lbs' ])
   });
 
   it('should have props inventoryItems', function () {

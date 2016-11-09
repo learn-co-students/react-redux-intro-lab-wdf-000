@@ -28,7 +28,6 @@ describe('<App/>', function () {
 
   it('should render the InventoryList component as a child', function () {
     const { store, props, wrapper } = setup()
-    console.log(wrapper.instance())
     expect(wrapper.find('InventoryList').length).toEqual(1)
   });
 
