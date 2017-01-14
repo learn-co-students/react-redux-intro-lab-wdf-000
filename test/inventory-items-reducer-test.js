@@ -27,20 +27,3 @@ describe('inventory items reducer', () => {
     ).toEqual([...items, {quantity: '1lb', description: 'baking soda'}])
   })
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
