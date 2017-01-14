@@ -40,18 +40,5 @@ describe('<App/>', function () {
     expect(wrapper.unrendered.type.displayName).toEqual('Connect(App)')
   })
 
- 
+
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
