@@ -5,7 +5,7 @@ const NewInventoryItem = (props) => {
     event.preventDefault();
     const quantity = event.target.children[1].value
     const description = event.target.children[3].value
-    // props.triggerCreateItem(quantity, description)
+    props.triggerCreateItem(quantity, description)
   }
   return (
     <div>
