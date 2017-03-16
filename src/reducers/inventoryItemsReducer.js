@@ -1,4 +1,4 @@
-export default function inventoryItemsReducer(state = [], action) {
+export default function inventoryListItemReducer(state = [], action) {
   switch(action.type) {
 
     case "GET_INVENTORY_LIST_ITEMS":
